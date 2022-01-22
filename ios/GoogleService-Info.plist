@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>604469313776-1r6b3ipm1i8be8p5bjve1c5jb7hum7jq.apps.googleusercontent.com</string>
+	<string>604469313776-c0sfch0ouv4g7cpo37kcqpvj9o0ejlao.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.604469313776-1r6b3ipm1i8be8p5bjve1c5jb7hum7jq</string>
+	<string>com.googleusercontent.apps.604469313776-c0sfch0ouv4g7cpo37kcqpvj9o0ejlao</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>604469313776-3618cj4nomjm1udjhfp8mca5c6npbaij.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDGTpUVM-iMabtiWqIZAKHJtCbKYenQRxQ</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ru.optgroup.strela</string>
+	<string>ru.optgroup.paprika</string>
 	<key>PROJECT_ID</key>
 	<string>test-project-f54ab</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:604469313776:ios:6881cb492d9965ab934235</string>
+	<string>1:604469313776:ios:2851b773234faf5d934235</string>
 </dict>
 </plist>

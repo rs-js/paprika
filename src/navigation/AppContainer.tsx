@@ -1,4 +1,3 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Image, Pressable} from 'native-base';
 import {Colors, Images} from '../assets';
 import {
@@ -6,10 +5,8 @@ import {
   MainStack,
   UserStack,
   ButtonsHeader,
-  DrawerHeader,
   BackHeader,
 } from './';
-import {Menu} from '../screens/main';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import React, {createRef, useEffect} from 'react';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
@@ -24,7 +21,7 @@ import {
 } from '../store';
 import {Constants} from '../utils';
 import {verifier} from '../store/api/firebase';
-import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
+import {createNativeStackNavigator, NativeStackNavigationOptions} from '@react-navigation/native-stack';
 
 export enum Route {
   About = 'About',
@@ -69,7 +66,7 @@ export function popToTop() {
   navigationRef.current.dispatch(StackActions.popToTop());
 }
 
-const {Navigator, Screen} = createDrawerNavigator();
+const {Navigator, Screen} = createNativeStackNavigator();
 
 export const navigatorHeader: NativeStackNavigationOptions = {
   headerStyle: {
@@ -78,14 +75,11 @@ export const navigatorHeader: NativeStackNavigationOptions = {
   headerShadowVisible: false,
 };
 
-export const backHeader = {
-  headerLeft: () => <BackHeader />,
-  headerBackVisible: false,
-};
-
 export const btnHeader: NativeStackNavigationOptions = {
   headerTitleAlign: 'center',
   headerRight: () => <ButtonsHeader />,
+  headerLeft: () => <BackHeader />,
+  headerBackVisible: false,
 };
 
 export const ImageHeader = () => (
@@ -94,12 +88,7 @@ export const ImageHeader = () => (
   </Pressable>
 );
 
-export const drwHeader: NativeStackNavigationOptions = {
-  headerTitleAlign: 'center',
-  headerTitle: () => <ImageHeader />,
-  headerLeft: () => <DrawerHeader />,
-  headerRight: () => <ButtonsHeader />,
-};
+
 
 export const AppContainer = () => {
   const dispatch = useDispatch();
@@ -137,7 +126,6 @@ export const AppContainer = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Navigator
-        drawerContent={props => <Menu {...props} />}
         screenOptions={{headerShown: false}}>
         <Screen component={MainStack} name={Route.Main} />
         <Screen component={CartStack} name={Route.Cart} />

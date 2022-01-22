@@ -7,7 +7,7 @@ import {UIStyles} from '../../../assets';
 export const BackHeader = () => {
   const {goBack} = useNavigation();
   return (
-    <TouchableOpacity onPress={() => goBack()}>
+    <TouchableOpacity onPress={goBack}>
       <Icon name="left" style={UIStyles.iconD} />
     </TouchableOpacity>
   );

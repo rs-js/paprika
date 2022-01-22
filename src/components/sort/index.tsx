@@ -19,7 +19,7 @@ export interface SortProducts {
 
 export const Sort = ({sort, setSort}: {sort: SortProducts; setSort: any}) => {
   return (
-    <View style={[UIStyles.flexRow, UIStyles.paddingBottom10]}>
+    <View style={[UIStyles.flexRow, UIStyles.paddingV10]}>
       <TouchableOpacity
         style={UIStyles.row}
         onPress={() =>

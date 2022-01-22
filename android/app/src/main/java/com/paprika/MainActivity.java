@@ -1,7 +1,7 @@
 package ru.optgroup.paprika;
-import com.zoontek.rnbootsplash.RNBootSplash;
-import android.os.Bundle;
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactActivityDelegate;
+import com.zoontek.rnbootsplash.RNBootSplash;
 
 public class MainActivity extends ReactActivity {
 
@@ -13,9 +13,15 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "paprika";
   }
+ @Override
+ protected ReactActivityDelegate createReactActivityDelegate() {
+   return new ReactActivityDelegate(this, getMainComponentName()) {
+
      @Override
-    protected void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
-      RNBootSplash.init(R.drawable.bootsplash, MainActivity.this);
-    }
+     protected void loadApp(String appKey) {
+       RNBootSplash.init(MainActivity.this);
+       super.loadApp(appKey);
+     }
+   };
+ }
 }

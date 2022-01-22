@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose, Store} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {createEpicMiddleware} from 'redux-observable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistStore, persistReducer} from 'redux-persist';
@@ -12,6 +12,7 @@ const persistConfig = {
   blacklist: ['pending', 'error', 'exists'],
 };
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 const middleware = [epicMiddleware];
 
 if (__DEV__) {
@@ -19,20 +20,10 @@ if (__DEV__) {
   middleware.push(createDebugger());
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-const store: Store = createStore(
+const store = createStore(
   persistedReducer,
   compose(applyMiddleware(...middleware)),
 );
-
-// if (__DEV__) {
-//   const reselectDebugger = require('reselect-debugger-flipper');
-//   reselectDebugger.configure({
-//     selectors,
-//     stateGetter: store.getState,
-//   });
-// }
 
 let persistor = persistStore(store);
 

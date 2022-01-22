@@ -25,7 +25,7 @@ export type SignUpProps = {
 };
 
 export const AuthStack = (Screen: any) => [
-  <Screen name={Route.Login} component={Login} options={{title: ''}} />,
+  <Screen name={Route.Login} component={Login} options={{...btnHeader, title: ''}} />,
   <Screen
     name={Route.Address}
     component={Address}
@@ -37,7 +37,7 @@ export const AuthStack = (Screen: any) => [
   <Screen
     name={Route.Confirmation}
     component={Confirmation}
-    options={{title: ''}}
+    options={{...btnHeader, title: ''}}
   />,
-  <Screen name={Route.SignUp} component={SignUp} options={{title: ''}} />,
+  <Screen name={Route.SignUp} component={SignUp} options={{...btnHeader, title: ''}} />,
 ];
